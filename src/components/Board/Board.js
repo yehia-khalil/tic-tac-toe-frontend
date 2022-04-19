@@ -10,9 +10,9 @@ export default function Board() {
         [ 1 , 1 , 1 ],
         [ 1 , 1 , 1 ]
     ];
-    
+    let tilesRef = useRef([]);
     const [myTurn, setMyTurn] = useState(true);
-
+    
     function checkWin(){
 
     }
@@ -22,7 +22,7 @@ export default function Board() {
             {grid.map((row,i)=>{
                 return(
                     <div className='row' key={i}>
-                        {row.map((item,j)=><Tile key={i*3+j} index={i*3+j+1} />)}
+                        {row.map((item,j)=><Tile ref={el=>tilesRef.current[i*3+j] = el} key={i*3+j} index={i*3+j+1} />)}
                     </div>
                 )
             })}
