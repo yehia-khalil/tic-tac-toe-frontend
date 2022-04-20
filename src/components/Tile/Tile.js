@@ -9,12 +9,11 @@ export default function Tile({index, row, col}) {
     let [move, setMove]=useState(null);
 
     function play(){
-        if(!move){
+        if(!move && !checkWin()){
             setMove(draw());
             setMyTurn(!myTurn);
-            let copy = [...grid];
-            copy[row][col]=draw();
-            setGrid(copy);
+            grid[row][col]=draw();
+            setGrid(grid);
             if(checkWin()){
                 alert (draw() + " WINNNNN")
             };
