@@ -3,16 +3,21 @@ import './tile.css'
 import TurnContext from '../../TurnContext'
 
 
-export default function Tile({index}) {
-
+export default function Tile({index, row, col}) {
     let turn = useContext(TurnContext)
-    let [myTurn, setMyTurn] = turn;
+    let [myTurn, setMyTurn, grid, setGrid, checkWin] = turn;
     let [move, setMove]=useState(null);
 
     function play(){
         if(!move){
             setMove(draw());
             setMyTurn(!myTurn);
+            let copy = [...grid];
+            copy[row][col]=draw();
+            setGrid(copy);
+            if(checkWin()){
+                alert (draw() + " WINNNNN")
+            };
         }
     }
     
