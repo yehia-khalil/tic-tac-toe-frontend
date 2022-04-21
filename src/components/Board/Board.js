@@ -24,7 +24,7 @@ export default function Board() {
         for(let i = 0 ; i < 3 ; i ++){
             if(grid[i].every(elem=>elem=='X')){
                 return true;
-            }else if(grid[i].every(elem=>elem=='X')){
+            }else if(grid[i].every(elem=>elem=='O')){
                 return true;
             }
         }
