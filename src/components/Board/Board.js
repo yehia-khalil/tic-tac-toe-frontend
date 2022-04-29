@@ -3,6 +3,7 @@ import Tile from '../Tile/Tile';
 import './board.css'
 import TurnContext from '../../TurnContext'
 import { checkColumns, checkDiagonals, checkRows } from './winConditions';
+import { Link } from 'react-router-dom';
 
 export default function Board() {
     let [grid, setGrid]= useState(Array.from({length: 3},()=> Array.from({length: 3}, () => null)))
@@ -27,6 +28,9 @@ export default function Board() {
 
     return ( 
         <TurnContext.Provider value={[myTurn, setMyTurn, grid, setGrid, checkWin]}>
+            
+            <Link to="/">Home</Link> 
+
             {grid.map((row,i)=>{
                 return(
                     <div className='row' key={i}>
