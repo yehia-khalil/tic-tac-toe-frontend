@@ -12,7 +12,7 @@ export default function Tile({index, row, col}) {
         if(checkWin()){
             alert (move + " WINNNNN")
         };
-    },[move])
+    }, [move])
 
     function play(){
         if(!move && !checkWin()){
@@ -20,7 +20,6 @@ export default function Tile({index, row, col}) {
             setMyTurn(!myTurn);
             grid[row][col]=draw();
             setGrid(grid);
-            
         }
     }
     
