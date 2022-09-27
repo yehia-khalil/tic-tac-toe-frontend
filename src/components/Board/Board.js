@@ -1,8 +1,8 @@
-import React, { createContext, useRef, useState } from 'react'
+import React, { useState } from 'react'
 import Tile from '../Tile/Tile';
 import './board.css'
 import TurnContext from '../../TurnContext'
-import { checkColumns, checkDiagonals, checkRows, checkWin } from './winConditions';
+import { checkWin } from './winConditions';
 import { Link } from 'react-router-dom';
 
 export default function Board() {
