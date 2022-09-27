@@ -24,3 +24,13 @@ export function checkDiagonals(grid){
     }
     return false;
 }
+
+export function checkWin(grid){
+    if( checkRows(grid)||
+        checkColumns(grid)||
+        checkDiagonals(grid)
+        ){
+        return true;
+    }
+    return false;
+}

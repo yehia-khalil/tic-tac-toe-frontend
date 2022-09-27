@@ -9,13 +9,13 @@ export default function Tile({index, row, col}) {
     let [move, setMove]=useState(null);
 
     useEffect(()=>{
-        if(checkWin()){
+        if(checkWin(grid)){
             alert (move + " WINNNNN")
         };
     }, [move])
 
     function play(){
-        if(!move && !checkWin()){
+        if(!move && !checkWin(grid)){
             setMove(draw());
             setMyTurn(!myTurn);
             grid[row][col]=draw();

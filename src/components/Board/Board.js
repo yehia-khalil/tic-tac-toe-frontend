@@ -2,7 +2,7 @@ import React, { createContext, useRef, useState } from 'react'
 import Tile from '../Tile/Tile';
 import './board.css'
 import TurnContext from '../../TurnContext'
-import { checkColumns, checkDiagonals, checkRows } from './winConditions';
+import { checkColumns, checkDiagonals, checkRows, checkWin } from './winConditions';
 import { Link } from 'react-router-dom';
 
 export default function Board() {
@@ -16,15 +16,6 @@ export default function Board() {
         setGrid(Array.from({length: 3},()=> Array.from({length: 3}, () => null)));
     }
 
-    function checkWin(){
-        if( checkRows(grid)||
-            checkColumns(grid)||
-            checkDiagonals(grid)
-            ){
-            return true;
-        }
-        return false;
-    }
 
     return ( 
         <TurnContext.Provider value={[myTurn, setMyTurn, grid, setGrid, checkWin]}>
