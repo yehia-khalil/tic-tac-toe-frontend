@@ -9,18 +9,20 @@ export default function Tile({index, row, col}) {
     let [move, setMove]=useState(null);
 
     useEffect(()=>{
-        if(checkWin(grid)){
-            alert (move + " WINNNNN")
-        };
-    }, [move])
+        // if(checkWin(grid)){
+        //     alert (move + " WINNNNN")
+        // };
+    },[])
 
     function play(){
-        if(!move && !checkWin(grid)){
+        if(!move && !checkWin(grid,move)){
             setMove(draw());
             setMyTurn(!myTurn);
             grid[row][col]=draw();
             setGrid(grid);
         }
+        console.log(move);
+        checkWin(grid,move);
     }
     
     function draw(){

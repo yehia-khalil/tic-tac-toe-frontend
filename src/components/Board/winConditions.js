@@ -25,11 +25,13 @@ export function checkDiagonals(grid){
     return false;
 }
 
-export function checkWin(grid){
+export function checkWin(grid,move){
     if( checkRows(grid)||
         checkColumns(grid)||
         checkDiagonals(grid)
         ){
+            console.log(move);
+        alert (move + " WINNNNN")
         return true;
     }
     return false;
